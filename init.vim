@@ -89,8 +89,11 @@ lua <<EOF
   require('lspconfig')['pylsp'].setup {
     capabilities = capabilities
   }
-  
-
+  require('lspconfig')['rust'].setup = {
+    cmd = {'rust-analyzer'},
+    filetypes = {'rs'},
+    settings = {}
+  }
 
   require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -129,3 +132,5 @@ wk.add({
 { "<leader>f", group = "file" }, 
 { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n"},
 })
+
+require('plugins')
