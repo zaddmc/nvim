@@ -13,6 +13,11 @@ keymap.set("n", "x", '"_x', { desc = "Delete single character without copying in
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
+-- For local replace DOESNT SEEM TO WORK
+--keymap.set("n", "<leader>gr", "gd[{V%::s/<C-R>///gc<left><left><left>", { desc = "Will replace the variable name under cursor in between curly brackets" })
+-- For global replace
+--keymap.set("n", "<leader>gR", "gD:%s/<C-R>///gc<left><left><left>", { desc = "Will replace the variable name under cursor in whole document" })
+
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
