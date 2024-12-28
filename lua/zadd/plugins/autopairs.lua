@@ -18,6 +18,9 @@ return {
 			},
 		})
 
+		local Rule = require("nvim-autopairs.rule")
+		autopairs.add_rule(Rule("|", "|", "rust"))
+
 		-- import nvim-autopairs completion functionality
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 

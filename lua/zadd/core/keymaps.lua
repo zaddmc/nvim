@@ -6,17 +6,17 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- 
-keymap.set("n", "x", '"_x', { desc = "Delete single character without copying into register"})
+--
+keymap.set("n", "x", '"_x', { desc = "Delete single character without copying into register" })
 
 -- increment/decrement numbers
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- For local replace DOESNT SEEM TO WORK
---keymap.set("n", "<leader>gr", "gd[{V%::s/<C-R>///gc<left><left><left>", { desc = "Will replace the variable name under cursor in between curly brackets" })
+--keymap.set(	"n",	"<leader>gr",	"gd[{V%::s/<C-R>///gc<left><left><left>",	{ desc = "Will replace the variable name under cursor in between curly brackets" })
 -- For global replace
---keymap.set("n", "<leader>gR", "gD:%s/<C-R>///gc<left><left><left>", { desc = "Will replace the variable name under cursor in whole document" })
+--keymap.set("n", "<leader>gR", "gD:%s/<C-R>///gc<left><left><left>",{ desc = "Will replace the variable name under cursor in whole document" })
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
@@ -29,4 +29,3 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-
