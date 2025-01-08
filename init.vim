@@ -132,5 +132,3 @@ wk.add({
 { "<leader>f", group = "file" }, 
 { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n"},
 })
-
-require('plugins')
