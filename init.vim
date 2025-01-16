@@ -42,7 +42,9 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
     Plug 'folke/which-key.nvim'
-call plug#end()
+
+    Plug 'mistricky/codesnap.nvim', {'do': 'make'}
+    call plug#end()
 
 colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 
@@ -125,6 +127,10 @@ require("catppuccin").setup({
             indentscope_color = "",
         },
     }
+})
+
+require("codesnap").setup({
+save_path = "~/screenshots/codesnap/nvim.png",
 })
 
 local wk = require("which-key")
