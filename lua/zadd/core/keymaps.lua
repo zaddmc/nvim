@@ -29,3 +29,26 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+keymap.set("n", "<C-b>", function()
+	local word = vim.fn.expand("<cword>")
+	local rval = ""
+	if word == "true" then
+		rval = "m`ciwfalse<Esc>``"
+	elseif word == "false" then
+		rval = "m`ciwtrue<Esc>``"
+	elseif word == "True" then
+		rval = "m`ciwFalse<Esc>``"
+	elseif word == "False" then
+		rval = "m`ciwTrue<Esc>``"
+	end
+	return rval
+end, { expr = true, desc = "Toggle boolean" })
+
+-- Run in tmux
+--[[ keymap.set(
+	"n",
+	"<leader>rt",
+	':w<CR>:silent <C-w>v "source $VIRTUAL_ENV/bin/activate; python3 %; echo "Press Enter to close..."; <CR>',
+	{ noremap = true, silent = true, desc = "Opens a terminal next to nvim to run python3 code" }
+) ]]

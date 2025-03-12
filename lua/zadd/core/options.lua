@@ -34,5 +34,8 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+-- Recommended code width
+opt.colorcolumn = "80"
+
 -- turn off swapfile
 --opt.swapfile = false
