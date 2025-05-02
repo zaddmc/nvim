@@ -51,7 +51,7 @@ return {
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
-				{ name = "render-markdown" }, -- Latex
+				{ name = "render-markdown" }, -- Markdown
 			}),
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
