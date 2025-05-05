@@ -52,3 +52,5 @@ end, { expr = true, desc = "Toggle boolean" })
 	':w<CR>:silent <C-w>v "source $VIRTUAL_ENV/bin/activate; python3 %; echo "Press Enter to close..."; <CR>',
 	{ noremap = true, silent = true, desc = "Opens a terminal next to nvim to run python3 code" }
 ) ]]
+
+keymap.set("n", "<C-e>", "<CR>")
