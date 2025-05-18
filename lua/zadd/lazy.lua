@@ -11,20 +11,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-	{
-		{ import = "zadd.plugins" },
-		{ import = "zadd.plugins.lsp" },
-		{ import = "zadd.plugins.formatter" },
-		{ import = "zadd.homebrown" },
+require("lazy").setup({
+	{ import = "zadd.plugins" },
+	{ import = "zadd.plugins.lsp" },
+	{ import = "zadd.plugins.formatter" },
+	{ import = "zadd.homebrown" },
+}, {
+	checker = {
+		enabled = true,
+		notify = false,
 	},
-	{
-		checker = {
-			enabled = true,
-			notify = false,
-		},
-		change_detection = {
-			notify = false,
-		},
-	}
-)
+	change_detection = {
+		notify = false,
+	},
+})

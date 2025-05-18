@@ -103,6 +103,9 @@ return {
 							completion = {
 								callSnippet = "Replace",
 							},
+							format = {
+								enable = false,
+							},
 						},
 					},
 				})
