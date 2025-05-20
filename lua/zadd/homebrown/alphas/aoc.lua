@@ -2,12 +2,13 @@ return {
 	"zaddmc/empty.nvim",
 	lazy = true,
 	enabled = false,
-	random = function()
+	random = function(self)
 		local options = { "christmas_tree" }
 		math.randomseed(os.clock() ^ 5)
-		return options[math.random(#options)]
+		return self.items[options[math.random(#options)]]
 	end,
-	christmas_tree = [[
+	items = {
+		christmas_tree = [[
           .     .  .      +     .      .          .
      .       .      .     #       .           .
         .      .         ###            .      .      .
@@ -25,4 +26,5 @@ return {
        .         .   .   000     .        .       .
 .. .. ..................O000O........................ ......
   ]],
+	},
 }

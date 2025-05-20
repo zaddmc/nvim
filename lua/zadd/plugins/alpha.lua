@@ -7,9 +7,9 @@ return {
 		local extra_alphas = require("zadd.homebrown.alphas")
 
 		if vim.loop.cwd():find("^/home/zadd/Programming/Advent_of_Code") then
-			dashboard.section.header.val = vim.split(extra_alphas.aoc[extra_alphas.aoc.random()], "\n")
+			dashboard.section.header.val = vim.split(extra_alphas.aoc:random(), "\n")
 		else
-			dashboard.section.header.val = vim.split(extra_alphas.general[extra_alphas.general.random()], "\n")
+			dashboard.section.header.val = vim.split(extra_alphas.general:random(), "\n")
 		end
 
 		-- Set menu
