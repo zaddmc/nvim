@@ -36,7 +36,7 @@ return {
 				},
 			},
 			filters = {
-				custom = { ".DS_Store" },
+				custom = { ".DS_Store", "venv" },
 			},
 			git = {
 				ignore = false,
