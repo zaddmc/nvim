@@ -36,7 +36,7 @@ return {
 				},
 			},
 			filters = {
-				custom = { ".DS_Store", "venv" },
+				custom = { ".DS_Store", "venv", "__pycache__" },
 			},
 			git = {
 				ignore = false,
