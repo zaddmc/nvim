@@ -21,7 +21,10 @@ return {
                 liquid = { "prettier" },
                 lua = { "stylua" },
                 python = { "isort", "black" },
-                c = { "clang-format" },
+                c = { "clang_format" },
+            },
+            formatters = {
+                clang_format = { args = { "-style={IndentWidth: 4}" } },
             },
             format_on_save = {
                 lsp_fallback = true,
