@@ -13,6 +13,7 @@ return {
                 svelte = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
+                htmldjango = { "prettier" },
                 json = { "biome" },
                 jsonc = { "biome" },
                 yaml = { "prettier" },

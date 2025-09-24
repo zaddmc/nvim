@@ -7,9 +7,9 @@ opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.softtabstop = 4
-opt.shiftwidth = 4 -- 2 spaces for indent width
+opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
@@ -34,8 +34,16 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Recommended code width
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "python" },
-	callback = function()
-		vim.cmd("setlocal cc=88")
-	end,
+    pattern = { "python" },
+    callback = function()
+        vim.cmd("setlocal cc=88")
+    end,
+})
+
+-- Set differnt tab widths
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c" },
+    callback = function()
+        vim.cmd("setlocal shiftwidth=4")
+    end,
 })
