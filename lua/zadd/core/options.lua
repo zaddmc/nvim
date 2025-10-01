@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Set differnt tab widths
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c" },
+    pattern = { "c", "lua" },
     callback = function()
         vim.cmd("setlocal shiftwidth=4")
     end,
