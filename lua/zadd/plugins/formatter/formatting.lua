@@ -27,11 +27,12 @@ return {
             formatters = {
                 clang_format = { args = { "-style={IndentWidth: 4}" } },
             },
-            format_on_save = {
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            },
+            format_on_save = function(bufnr)
+                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                    return
+                end
+                return { timeout_ms = 1000, lsp_format = "fallback" }
+            end,
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>mp", function()
@@ -41,5 +42,17 @@ return {
                 timeout_ms = 1000,
             })
         end, { desc = "Format file or range (in visual mode)" })
+        vim.api.nvim_create_user_command("FormatDisable", function(args)
+            if args.bang then
+                -- Bang will disable for all buffers
+                vim.g.disable_autoformat = true
+            else
+                vim.b.disable_autoformat = true
+            end
+        end, { desc = "Disable auto foramtting on save", bang = true })
+        vim.api.nvim_create_user_command("FormatEnable", function()
+            vim.g.disable_autoformat = false
+            vim.b.disable_autoformat = false
+        end, { desc = "Enable auto formatting on save" })
     end,
 }
