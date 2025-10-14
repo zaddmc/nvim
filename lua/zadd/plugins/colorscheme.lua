@@ -38,4 +38,7 @@ return {
             vim.cmd("highlight ColorColumn ctermbg=0 guibg=#143652")
         end,
     },
+    {
+        "nvim-mini/mini.icons",
+    },
 }
