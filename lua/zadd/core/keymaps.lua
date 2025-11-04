@@ -30,19 +30,29 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+keymap.set("n", "<A-1>", "<cmd>tabn 1<CR>", { desc = "Go to tab 1" })
+keymap.set("n", "<A-2>", "<cmd>tabn 2<CR>", { desc = "Go to tab 2" })
+keymap.set("n", "<A-3>", "<cmd>tabn 3<CR>", { desc = "Go to tab 3" })
+keymap.set("n", "<A-4>", "<cmd>tabn 4<CR>", { desc = "Go to tab 4" })
+keymap.set("n", "<A-5>", "<cmd>tabn 5<CR>", { desc = "Go to tab 5" })
+keymap.set("n", "<A-6>", "<cmd>tabn 6<CR>", { desc = "Go to tab 6" })
+keymap.set("n", "<A-7>", "<cmd>tabn 7<CR>", { desc = "Go to tab 7" })
+keymap.set("n", "<A-8>", "<cmd>tabn 8<CR>", { desc = "Go to tab 8" })
+keymap.set("n", "<A-9>", "<cmd>tabn 9<CR>", { desc = "Go to tab 9" })
+
 keymap.set("n", "<C-b>", function()
-	local word = vim.fn.expand("<cword>")
-	local rval = ""
-	if word == "true" then
-		rval = "m`ciwfalse<Esc>``"
-	elseif word == "false" then
-		rval = "m`ciwtrue<Esc>``"
-	elseif word == "True" then
-		rval = "m`ciwFalse<Esc>``"
-	elseif word == "False" then
-		rval = "m`ciwTrue<Esc>``"
-	end
-	return rval
+    local word = vim.fn.expand("<cword>")
+    local rval = ""
+    if word == "true" then
+        rval = "m`ciwfalse<Esc>``"
+    elseif word == "false" then
+        rval = "m`ciwtrue<Esc>``"
+    elseif word == "True" then
+        rval = "m`ciwFalse<Esc>``"
+    elseif word == "False" then
+        rval = "m`ciwTrue<Esc>``"
+    end
+    return rval
 end, { expr = true, desc = "Toggle boolean" })
 
 -- Run in tmux
