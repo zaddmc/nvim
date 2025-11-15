@@ -26,6 +26,7 @@ return {
             },
             formatters = {
                 clang_format = { args = { "-style={IndentWidth: 4}" } },
+                stylua = { args = { "--config-path", "/home/zadd/.config/nvim/stylua.toml", "-" } },
             },
             format_on_save = function(bufnr)
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -42,6 +43,7 @@ return {
                 timeout_ms = 1000,
             })
         end, { desc = "Format file or range (in visual mode)" })
+
         vim.api.nvim_create_user_command("FormatDisable", function(args)
             if args.bang then
                 -- Bang will disable for all buffers
