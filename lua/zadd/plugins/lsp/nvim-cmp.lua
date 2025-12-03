@@ -9,6 +9,7 @@ return {
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "mtoohey31/cmp-fish",
+        "folke/lazydev.nvim",
     },
     config = function()
         local cmp = require("cmp")
@@ -61,6 +62,7 @@ return {
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
+                { name = "lazydev" }, -- Will only work in lua for better thing
                 { name = "nvim_lsp" },
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer

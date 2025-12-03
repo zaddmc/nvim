@@ -1,4 +1,4 @@
-Inspired by https://www.josean.com/posts/how-to-setup-neovim-2024
+Inspired by https://github.com/josean-dev/dev-environment-files
 
 # Keybinds
 

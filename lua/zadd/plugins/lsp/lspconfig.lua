@@ -4,7 +4,7 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} },
+        { "folke/lazydev.nvim" },
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -83,8 +83,8 @@ return {
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
-                    diagnostics = { globals = { "vim" } },
                     completion = { callSnippet = "Replace" },
+                    workspace = { checkThirdParty = false },
                 },
             },
         })

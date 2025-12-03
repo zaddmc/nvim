@@ -1,0 +1,5 @@
+Diagnostics:
+  Suppress:
+    - "-fno-shrink-wrap"
+    - "-Wunused-parameter"
+    - "-Wdeprecated-declarations"
