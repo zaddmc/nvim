@@ -62,20 +62,28 @@ return {
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
-                { name = "lazydev" }, -- Will only work in lua for better thing
                 { name = "nvim_lsp" },
+                { name = "lazydev" }, -- Will only work in lua for better thing
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
                 { name = "fish" },
             }),
+            window = {
+                completion = {
+                    --winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                    col_offset = -2,
+                    --side_padding = 0,
+                },
+            },
             formatting = {
-                fields = { "kind", "abbr", "menu" },
+                fields = { "icon", "abbr", "menu", "kind" },
                 format = function(entry, vim_item)
-                    local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-                    local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                    kind.kind = " " .. (strings[1] or "") .. " "
-                    kind.menu = "    (" .. (strings[2] or "") .. ")"
+                    local kind = require("lspkind").cmp_format({ mode = "text_symbol", maxwidth = 50 })(entry, vim_item)
+                    --local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                    kind.icon = (kind.icon or "") .. " "
+                    kind.kind = "   (" .. (kind.kind or "") .. ") "
+                    --kind.menu = "    (" .. (strings[2] or "") .. ")"
                     return kind
                 end,
                 expandable_indicator = true,
