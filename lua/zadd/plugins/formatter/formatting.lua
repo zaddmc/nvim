@@ -23,6 +23,7 @@ return {
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 c = { "clang_format" },
+                cs = { "clang_format" },
             },
             formatters = {
                 clang_format = { args = { "-style={IndentWidth: 4}" } },
