@@ -23,10 +23,13 @@ return {
                 lua = { "stylua" },
                 python = { "isort", "black" },
                 c = { "clang_format" },
-                cs = { "clang_format" },
+                h = { "clang_format" },
+                cpp = { "clang_format" },
+                hpp = { "clang_format" },
+                cs = { "csharpier" },
             },
             formatters = {
-                clang_format = { args = { "-style={IndentWidth: 4}" } },
+                clang_format = { args = { "-style={IndentWidth: 4, ColumnLimit: 120}" } },
                 stylua = { args = { "--config-path", "/home/zadd/.config/nvim/stylua.toml", "-" } },
             },
             format_on_save = function(bufnr)

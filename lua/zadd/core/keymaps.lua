@@ -2,8 +2,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
---keymap.set("i", "jk", "<ESC>", {desc = "Exit insert mode with jk"}) --Stupid
-
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 --
@@ -40,6 +38,7 @@ keymap.set("n", "<A-7>", "<cmd>tabn 7<CR>", { desc = "Go to tab 7" })
 keymap.set("n", "<A-8>", "<cmd>tabn 8<CR>", { desc = "Go to tab 8" })
 keymap.set("n", "<A-9>", "<cmd>tabn 9<CR>", { desc = "Go to tab 9" })
 
+-- Boolean stuff
 keymap.set("n", "<C-b>", function()
     local word = vim.fn.expand("<cword>")
     local rval = ""
@@ -54,13 +53,5 @@ keymap.set("n", "<C-b>", function()
     end
     return rval
 end, { expr = true, desc = "Toggle boolean" })
-
--- Run in tmux
---[[ keymap.set(
-	"n",
-	"<leader>rt",
-	':w<CR>:silent <C-w>v "source $VIRTUAL_ENV/bin/activate; python3 %; echo "Press Enter to close..."; <CR>',
-	{ noremap = true, silent = true, desc = "Opens a terminal next to nvim to run python3 code" }
-) ]]
 
 keymap.set("n", "<C-e>", "<CR>")

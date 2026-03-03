@@ -39,6 +39,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd("setlocal cc=88")
     end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c" },
+    callback = function()
+        vim.cmd("setlocal cc=120")
+    end,
+})
 
 -- Set differnt tab widths
 vim.api.nvim_create_autocmd("FileType", {
