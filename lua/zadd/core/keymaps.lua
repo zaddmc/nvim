@@ -39,7 +39,7 @@ keymap.set("n", "<A-8>", "<cmd>tabn 8<CR>", { desc = "Go to tab 8" })
 keymap.set("n", "<A-9>", "<cmd>tabn 9<CR>", { desc = "Go to tab 9" })
 
 -- Boolean stuff
-keymap.set("n", "<C-b>", function()
+keymap.set("n", "<leader>b", function()
     local word = vim.fn.expand("<cword>")
     local rval = ""
     if word == "true" then

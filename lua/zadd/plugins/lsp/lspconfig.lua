@@ -62,7 +62,6 @@ return {
         })
 
         -- Change the Diagnostic symbols in the sign column (gutter)
-        -- (not in youtube nvim video)
         vim.diagnostic.config({
             signs = {
                 text = {
