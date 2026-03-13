@@ -18,5 +18,5 @@ return {
             end
         end)
     end, {}),
-    --vim.keymap.set("v", "<leader>mx", ":SplitStr0x<CR>", { noremap = true, silent = true }),
+    vim.keymap.set("v", "<leader>mx", ":SplitStr0x<CR>", { noremap = true, silent = true }),
 }

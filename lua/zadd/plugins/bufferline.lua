@@ -6,7 +6,6 @@ return {
         options = {
             mode = "tabs",
             separator_style = "slant",
-            numbers = true,
         },
     },
 }
