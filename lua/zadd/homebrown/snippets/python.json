@@ -1,0 +1,9 @@
+{
+  "withfile": {
+    "prefix": "withfile",
+    "body": [
+      "with open(\"input.txt\", \"r\") as file:",
+      "    DATA = ${1:file.read().strip()}"
+    ]
+  }
+}

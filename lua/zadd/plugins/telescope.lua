@@ -1,14 +1,18 @@
 return {
+    enabled = false,
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        "nvim-telescope/telescope-media-files.nvim",
         "folke/todo-comments.nvim",
         "nvim-tree/nvim-web-devicons",
     },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
+
+        telescope.load_extension("media_files")
 
         telescope.setup({
             defaults = {
@@ -22,6 +26,12 @@ return {
                     },
                 },
                 file_ignore_patterns = { "venv", "build" },
+            },
+            extensions = {
+                media_files = {
+                    find_cmd = "rg",
+                    file_types = { "png" },
+                },
             },
         })
 

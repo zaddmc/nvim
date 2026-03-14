@@ -1,0 +1,6 @@
+{
+  "ignore": {
+    "prefix": "stylua",
+    "body": ["-- stylua: ignore start", "${1}", "-- stylua: ignore end"]
+  }
+}

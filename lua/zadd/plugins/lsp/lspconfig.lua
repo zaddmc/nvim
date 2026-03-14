@@ -2,14 +2,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        "saghen/blink.cmp",
         { "antosha417/nvim-lsp-file-operations", config = true },
         "folke/lazydev.nvim",
     },
-    config = function()
-        local lspconfig = require("lspconfig")
-        local mason_lspconfig = require("mason-lspconfig")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    config = function(_, opts)
+        local blink_cmp = require("blink.cmp")
         local keymap = vim.keymap -- for conciseness
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -61,6 +59,8 @@ return {
             end,
         })
 
+        vim.o.winborder = "rounded"
+
         -- Change the Diagnostic symbols in the sign column (gutter)
         vim.diagnostic.config({
             signs = {
@@ -74,7 +74,7 @@ return {
         })
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local capabilities = blink_cmp.get_lsp_capabilities()
 
         vim.lsp.config("*", {
             capabilities = capabilities,
@@ -82,8 +82,9 @@ return {
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
-                    -- completion = { callSnippet = "Replace" },
-                    workspace = { checkThirdParty = false },
+                    workspace = {
+                        checkThirdParty = false,
+                    },
                 },
             },
         })
