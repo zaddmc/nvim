@@ -29,7 +29,7 @@ return {
                 cs = { "csharpier" },
             },
             formatters = {
-                clang_format = { args = { "-style={IndentWidth: 4, ColumnLimit: 120}" } },
+                clang_format = { args = { "-style={IndentWidth: 4, ColumnLimit: 140}" } },
                 stylua = { args = { "--config-path", "/home/zadd/.config/nvim/stylua.toml", "-" } },
             },
             format_on_save = function(bufnr)

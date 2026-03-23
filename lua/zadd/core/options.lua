@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "c" },
     callback = function()
-        vim.cmd("setlocal cc=120")
+        vim.cmd("setlocal cc=140")
     end,
 })
 
