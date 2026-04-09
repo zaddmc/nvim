@@ -36,7 +36,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "python" },
     callback = function()
-        vim.cmd("setlocal cc=88")
+        vim.cmd("setlocal cc=120")
     end,
 })
 vim.api.nvim_create_autocmd("FileType", {

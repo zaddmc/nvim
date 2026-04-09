@@ -31,6 +31,7 @@ return {
             formatters = {
                 clang_format = { args = { "-style={IndentWidth: 4, ColumnLimit: 140}" } },
                 stylua = { args = { "--config-path", "/home/zadd/.config/nvim/stylua.toml", "-" } },
+                black = { prepend_args = { "--line-length=120" } },
             },
             format_on_save = function(bufnr)
                 if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -45,6 +46,7 @@ return {
                 lsp_fallback = true,
                 async = false,
                 timeout_ms = 1000,
+                bufnr = 0,
             })
         end, { desc = "Format file or range (in visual mode)" })
 

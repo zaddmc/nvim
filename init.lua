@@ -1,2 +1,2 @@
-require("zadd.core")
-require("zadd.lazy")
+require("core")
+require("config.lazy")

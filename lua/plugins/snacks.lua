@@ -8,7 +8,7 @@ return {
         input = { enabled = true },
         image = { enabled = true },
         quickfile = { enabled = true },
-        picker = { enabled = true },
+        picker = { enabled = true, sources = { files = { exclude = { ".venv", "venv", "__pycache__", ".git" } } } },
         explorer = { enabled = true },
         dashboard = {
             enabled = true,
@@ -16,8 +16,7 @@ return {
                 { section = "startup", padding = { 2, 2 } },
                 {
                     function()
-                        local ascii_art = require("zadd.homebrown.alphas")
-
+                        local ascii_art = require("homebrown.alphas")
                         if vim.loop.cwd():find("^/home/zadd/Programming/Advent_of_Code") then
                             return { text = ascii_art.aoc:random() }
                         else

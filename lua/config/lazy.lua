@@ -12,16 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = "zadd.plugins" },
-    { import = "zadd.plugins.lsp" },
-    { import = "zadd.plugins.formatter" },
-    { import = "zadd.homebrown" },
-}, {
-    checker = {
-        enabled = true,
-        notify = false,
+    spec = {
+        { import = "plugins" },
+        { import = "plugins.lsp" },
+        { import = "plugins.formatter" },
+        { import = "homebrown" },
     },
-    change_detection = {
-        notify = false,
-    },
+    dev = { path = vim.fn.stdpath("config") .. "/lua/homebrown" },
+    checker = { enabled = true },
+    change_detection = { notify = false },
 })

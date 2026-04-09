@@ -1,5 +1,5 @@
 return {
-    { "OXY2DEV/markview.nvim", lazy = false },
+    { "OXY2DEV/markview.nvim", ft = { "markdown" }, lazy = true },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -7,6 +7,6 @@ return {
         build = function()
             vim.fn["mkdp#util#install"]()
         end,
-        lazy = false,
+        lazy = true,
     },
 }

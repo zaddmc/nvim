@@ -24,10 +24,8 @@ return {
 
                 ["<C-b>"] = { "scroll_documentation_up", "fallback" },
                 ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-
-                --["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
             },
-            fuzzy = { implementation = "prefer_rust_with_warning" },
+            fuzzy = { implementation = "prefer_rust" },
             signature = { enabled = true },
             completion = {
                 menu = {
@@ -43,7 +41,10 @@ return {
                 accept = { auto_brackets = { enabled = true } },
             },
             sources = {
-                default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+                default = { "lsp", "path", "snippets", "buffer" },
+                per_filetype = {
+                    lua = { "lazydev", inherit_defaults = true },
+                },
                 providers = {
                     lazydev = {
                         name = "LazyDev",
