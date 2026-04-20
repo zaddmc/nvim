@@ -18,7 +18,6 @@ require("lazy").setup({
         { import = "plugins.formatter" },
         { import = "homebrown" },
     },
-    dev = { path = vim.fn.stdpath("config") .. "/lua/homebrown" },
-    checker = { enabled = true },
+    checker = { enabled = true, notify = false },
     change_detection = { notify = false },
 })

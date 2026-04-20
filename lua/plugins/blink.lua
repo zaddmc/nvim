@@ -16,8 +16,21 @@ return {
                 ["<C-j>"] = { "select_next", "fallback" },
 
                 ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+                ["<C-c>"] = { "hide" },
                 ["<C-e>"] = { "select_and_accept", "fallback" },
                 ["<CR>"] = { "accept", "fallback" },
+                --[[ ["."] = {
+                    function(cmp)
+                        if cmp.is_visible() then
+                            if cmp.accept() then
+                                vim.api.nvim_put({ "." }, "c", true, true)
+                                return true
+                            end
+                        end
+                        return false
+                    end,
+                    "fallback",
+                }, ]]
 
                 ["<Tab>"] = { "snippet_forward", "fallback" },
                 ["<S-Tab>"] = { "snippet_backward", "fallback" },
