@@ -27,6 +27,8 @@ return {
                 cpp = { "clang_format" },
                 hpp = { "clang_format" },
                 cs = { "csharpier" },
+                bash = { "beautysh" },
+                sh = { "beautysh" },
             },
             formatters = {
                 clang_format = { args = { "-style={IndentWidth: 4, ColumnLimit: 140}" } },

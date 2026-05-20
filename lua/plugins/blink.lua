@@ -1,7 +1,7 @@
 return {
     {
         "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets", "folke/lazydev.nvim" },
+        dependencies = { "rafamadriz/friendly-snippets", "folke/lazydev.nvim", "saghen/blink.lib" },
         build = "cargo build --release",
 
         ---@module "blink.cmp"
@@ -18,7 +18,7 @@ return {
                 ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
                 ["<C-c>"] = { "hide" },
                 ["<C-e>"] = { "select_and_accept", "fallback" },
-                ["<CR>"] = { "accept", "fallback" },
+                ["<CR>"] = { "select_and_accept", "fallback" },
                 --[[ ["."] = {
                     function(cmp)
                         if cmp.is_visible() then
@@ -41,17 +41,20 @@ return {
             fuzzy = { implementation = "prefer_rust" },
             signature = { enabled = true },
             completion = {
+                trigger = {
+                    prefetch_on_insert = true,
+                },
                 menu = {
                     draw = {
-                        padding = { 0, 1 },
                         columns = {
                             { "kind_icon", "label", "label_description", gap = 2 },
                             { "kind" },
                         },
                     },
+                    auto_show_delay_ms = 0,
                 },
                 ghost_text = { enabled = false },
-                accept = { auto_brackets = { enabled = true } },
+                accept = { auto_brackets = { enabled = false } },
             },
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
