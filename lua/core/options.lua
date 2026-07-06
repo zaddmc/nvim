@@ -34,7 +34,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Recommended code width
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python" },
+    pattern = { "python", "rust" },
     callback = function()
         vim.cmd("setlocal cc=120")
     end,
@@ -62,3 +62,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd("setlocal shiftwidth=4")
     end,
 })
+
+-- Hide the active snippet jump targets completely
+vim.api.nvim_set_hl(0, "SnippetTabstop", { link = "None" })

@@ -16,6 +16,7 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.lsp" },
         { import = "plugins.formatter" },
+        { import = "plugins.ft" },
         { import = "homebrown" },
     },
     checker = { enabled = true, notify = false },

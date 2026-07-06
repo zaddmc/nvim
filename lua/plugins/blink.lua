@@ -1,7 +1,12 @@
 return {
     {
         "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets", "folke/lazydev.nvim", "saghen/blink.lib" },
+        dependencies = {
+            "folke/lazydev.nvim",
+            "bydlw98/blink-cmp-env",
+            "saghen/blink.lib",
+            "rafamadriz/friendly-snippets",
+        },
         build = "cargo build --release",
 
         ---@module "blink.cmp"
@@ -39,7 +44,7 @@ return {
                 ["<C-f>"] = { "scroll_documentation_down", "fallback" },
             },
             fuzzy = { implementation = "prefer_rust" },
-            signature = { enabled = true },
+            signature = { enabled = false },
             completion = {
                 trigger = {
                     prefetch_on_insert = true,
@@ -50,18 +55,28 @@ return {
                             { "kind_icon", "label", "label_description", gap = 2 },
                             { "kind" },
                         },
+                        cursorline_priority = 0,
                     },
                     auto_show_delay_ms = 0,
                 },
                 ghost_text = { enabled = false },
-                accept = { auto_brackets = { enabled = false } },
+                accept = { auto_brackets = { enabled = true } },
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
+                default = { "lsp", "path", "snippets", "buffer", "env" },
                 per_filetype = {
                     lua = { "lazydev", inherit_defaults = true },
                 },
                 providers = {
+                    env = {
+                        name = "Env",
+                        module = "blink-cmp-env",
+                        opts = {
+                            -- item_kind = require("blink.cmp.types").CompletionItemKind.Variable,
+                            show_braces = false,
+                            show_documentation_window = true,
+                        },
+                    },
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
@@ -81,14 +96,16 @@ return {
     {
         "saghen/blink.pairs",
         version = "*",
-        dependencies = { "saghen/blink.download" },
-        --build = "cargo build --release",
+        dependencies = { "saghen/blink.lib" },
+        build = function()
+            require("blink.pairs").download():pwait(60000)
+        end,
 
         ---@module "blink.pairs"
         ---@type blink.pairs.config
         opts = {
             mappings = { enabled = true, cmdline = false },
-            highlights = { enabled = false },
+            highlights = { enabled = true, groups = { "BlinkPairsOrange", "BlinkPairsPurple", "BlinkPairsBlue" } },
         },
     },
 }
