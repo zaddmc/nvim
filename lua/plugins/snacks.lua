@@ -28,7 +28,13 @@ return {
                 { section = "keys", gap = 1, padding = 1, align = "center" },
             },
         },
-        statuscolumn = { enabled = true },
+        statuscolumn = {
+            enabled = true,
+            left = { "sign", "git" },
+            right = { "fold", "mark" },
+            folds = { open = true, git = true },
+            git = { patterns = { "GitSign" } },
+        },
     },
     keys = {
         -- stylua: ignore start

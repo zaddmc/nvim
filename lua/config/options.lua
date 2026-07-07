@@ -36,14 +36,14 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Folds
 opt.foldlevel = 99
-opt.foldmethod = "indent"
+opt.foldmethod = "syntax"
 opt.foldtext = ""
 
 opt.spelllang = { "en" }
 
 opt.grepprg = "rg --vimgrep"
 
---opt.statuscolumn = "" --[[%!v:lua.LazyVim.statuscolumn()]]
+vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 
 -- Hide the active snippet jump targets completely
 vim.api.nvim_set_hl(0, "SnippetTabstop", { link = "None" })
