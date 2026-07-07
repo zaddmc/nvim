@@ -35,15 +35,21 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 -- Folds
+opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldinner = " ",
+    foldsep = " ",
+}
 opt.foldlevel = 99
-opt.foldmethod = "syntax"
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
+opt.foldcolumn = "0"
+opt.foldminlines = 5
+opt.statuscolumn = [[%s%l %C ]]
 
 opt.spelllang = { "en" }
 
 opt.grepprg = "rg --vimgrep"
-
-vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
-
--- Hide the active snippet jump targets completely
-vim.api.nvim_set_hl(0, "SnippetTabstop", { link = "None" })

@@ -29,9 +29,9 @@ return {
             },
         },
         statuscolumn = {
-            enabled = true,
+            enabled = false,
             left = { "sign", "git" },
-            right = { "fold", "mark" },
+            right = {},
             folds = { open = true, git = true },
             git = { patterns = { "GitSign" } },
         },

@@ -36,6 +36,7 @@ return {
             -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight]])
             vim.cmd("highlight ColorColumn ctermbg=0 guibg=#143652")
+            vim.cmd("highlight Folded guibg=#011628 guifg=white")
         end,
     },
     {
