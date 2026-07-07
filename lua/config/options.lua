@@ -1,5 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3") -- Make :Explore tree style
 
+vim.g.trouble_lualine = true
+
 local opt = vim.opt
 
 -- line numbers
@@ -32,36 +34,16 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
--- Recommended code width
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python", "rust" },
-    callback = function()
-        vim.cmd("setlocal cc=120")
-    end,
-})
+-- Folds
+opt.foldlevel = 99
+opt.foldmethod = "indent"
+opt.foldtext = ""
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c" },
-    callback = function()
-        vim.cmd("setlocal cc=140")
-        -- Fixes for common switch-case indentation jumps
-        vim.opt_local.cinoptions = {
-            ":0", -- Place case labels in the same column as the switch statement
-            "l1", -- Indent case bodies relative to the case label
-            "g0", -- Place C++ scope declarations (public, private) at same level
-            "t0", -- Don't indent function return types
-            "(0", -- Align with unclosed parentheses
-        }
-    end,
-})
+opt.spelllang = { "en" }
 
--- Set differnt tab widths
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "lua", "cs" },
-    callback = function()
-        vim.cmd("setlocal shiftwidth=4")
-    end,
-})
+opt.grepprg = "rg --vimgrep"
+
+--opt.statuscolumn = "" --[[%!v:lua.LazyVim.statuscolumn()]]
 
 -- Hide the active snippet jump targets completely
 vim.api.nvim_set_hl(0, "SnippetTabstop", { link = "None" })

@@ -68,7 +68,7 @@ return {
             settings = {
                 Lua = {
                     workspace = {
-                        checkThirdParty = false,
+                        checkThirdParty = true,
                     },
                 },
             },
@@ -76,5 +76,6 @@ return {
     end,
     opts = {
         inlay_hints = { enabled = true },
+        folds = { enabled = true },
     },
 }

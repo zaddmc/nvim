@@ -9,7 +9,7 @@ return {
         image = { enabled = true },
         quickfile = { enabled = true },
         picker = { enabled = true, sources = { files = { exclude = { ".venv", "venv", "__pycache__", ".git" } } } },
-        explorer = { enabled = true },
+        explorer = { enabled = true, replace_netrw = true },
         dashboard = {
             enabled = true,
             sections = {
@@ -28,6 +28,7 @@ return {
                 { section = "keys", gap = 1, padding = 1, align = "center" },
             },
         },
+        statuscolumn = { enabled = true },
     },
     keys = {
         -- stylua: ignore start
@@ -49,6 +50,10 @@ return {
         { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
         { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
         { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+
+        { "<leader>ee",function() Snacks.explorer() end, desc = "Open file tree" },
+        { "<leader>er",function() Snacks.explorer.reveal() end, desc = "Open current buffer in file tree" },
+        { "<leader>ec",function() Snacks.explorer({cwd = vim.fn.stdpath("config")}) end, desc = "Open file tree for Neovim Config" },
         -- stylua: ignore end
     },
     init = function()
