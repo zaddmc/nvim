@@ -8,7 +8,13 @@ return {
         input = { enabled = true },
         image = { enabled = true },
         quickfile = { enabled = true },
-        picker = { enabled = true, sources = { files = { exclude = { ".venv", "venv", "__pycache__", ".git" } } } },
+        picker = {
+            enabled = true,
+            sources = {
+                files = { exclude = { ".venv", "venv", "__pycache__", ".git" } },
+                explorer = { auto_close = true },
+            },
+        },
         explorer = { enabled = true, replace_netrw = true },
         dashboard = {
             enabled = true,
@@ -27,13 +33,6 @@ return {
                 },
                 { section = "keys", gap = 1, padding = 1, align = "center" },
             },
-        },
-        statuscolumn = {
-            enabled = false,
-            left = { "sign", "git" },
-            right = {},
-            folds = { open = true, git = true },
-            git = { patterns = { "GitSign" } },
         },
     },
     keys = {
