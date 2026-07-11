@@ -2,7 +2,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader>nh", function() end, { desc = "Clear search highlights" })
+keymap.set("n", "*", ":lua vim.lsp.buf.document_highlight()<CR>")
 
 --
 keymap.set("n", "x", '"_x', { desc = "Delete single character without copying into register" })

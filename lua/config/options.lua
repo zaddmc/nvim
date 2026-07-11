@@ -7,6 +7,9 @@ local opt = vim.opt
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+opt.numberwidth = 5
+opt.scrolloff = 5
+opt.sidescrolloff = 5
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -33,6 +36,7 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+opt.winborder = "rounded"
 
 -- Folds
 opt.fillchars = {

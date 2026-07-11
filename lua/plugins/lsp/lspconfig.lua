@@ -44,8 +44,6 @@ return {
             end,
         })
 
-        vim.o.winborder = "rounded"
-
         -- Change the Diagnostic symbols in the sign column (gutter)
         vim.diagnostic.config({
             signs = {
@@ -58,12 +56,7 @@ return {
             },
         })
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = blink_cmp.get_lsp_capabilities()
-
-        vim.lsp.config("*", {
-            capabilities = capabilities,
-        })
+        vim.lsp.config("*", {})
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {

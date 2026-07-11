@@ -42,9 +42,11 @@ return {
 
                 ["<C-b>"] = { "scroll_documentation_up", "fallback" },
                 ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+                ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
             },
             fuzzy = { implementation = "prefer_rust" },
-            signature = { enabled = false },
+            signature = { enabled = true },
             completion = {
                 trigger = {
                     prefetch_on_insert = true,
@@ -59,6 +61,7 @@ return {
                     },
                     auto_show_delay_ms = 0,
                 },
+                documentation = { auto_show = true, auto_show_delay_ms = 0 },
                 ghost_text = { enabled = false },
                 accept = { auto_brackets = { enabled = true } },
             },
