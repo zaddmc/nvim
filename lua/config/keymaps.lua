@@ -2,7 +2,11 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>nh", function() end, { desc = "Clear search highlights" })
+keymap.set("n", "<leader>nh", function()
+    vim.cmd.noh()
+    vim.lsp.buf.clear_references()
+    print("Cleared Highlights")
+end, { desc = "Clear search highlights" })
 keymap.set("n", "*", ":lua vim.lsp.buf.document_highlight()<CR>")
 
 --
@@ -11,11 +15,6 @@ keymap.set("n", "x", '"_x', { desc = "Delete single character without copying in
 -- increment/decrement numbers
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
-
--- For local replace DOESNT SEEM TO WORK
---keymap.set(	"n",	"<leader>gr",	"gd[{V%::s/<C-R>///gc<left><left><left>",	{ desc = "Will replace the variable name under cursor in between curly brackets" })
--- For global replace
---keymap.set("n", "<leader>gR", "gD:%s/<C-R>///gc<left><left><left>",{ desc = "Will replace the variable name under cursor in whole document" })
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
@@ -27,21 +26,21 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { desc = "Move to left pane" })
 keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Move to right pane" })
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+-- Tabs
+keymap.set("n", "<leader>to", function()
+    vim.cmd.tabnew()
+    local win = vim.api.nvim_get_current_win()
+    -- vim.w[win].snacks_main = true
+    Snacks.dashboard.open({ win = win })
+end, { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-keymap.set("n", "<A-1>", "<cmd>tabn 1<CR>", { desc = "Go to tab 1" })
-keymap.set("n", "<A-2>", "<cmd>tabn 2<CR>", { desc = "Go to tab 2" })
-keymap.set("n", "<A-3>", "<cmd>tabn 3<CR>", { desc = "Go to tab 3" })
-keymap.set("n", "<A-4>", "<cmd>tabn 4<CR>", { desc = "Go to tab 4" })
-keymap.set("n", "<A-5>", "<cmd>tabn 5<CR>", { desc = "Go to tab 5" })
-keymap.set("n", "<A-6>", "<cmd>tabn 6<CR>", { desc = "Go to tab 6" })
-keymap.set("n", "<A-7>", "<cmd>tabn 7<CR>", { desc = "Go to tab 7" })
-keymap.set("n", "<A-8>", "<cmd>tabn 8<CR>", { desc = "Go to tab 8" })
-keymap.set("n", "<A-9>", "<cmd>tabn 9<CR>", { desc = "Go to tab 9" })
+for i = 1, 10 do
+    keymap.set("n", "<A-" .. i .. ">", "<cmd>tabn " .. i .. "<CR>", { desc = "Go to tab " .. i })
+end
 
 -- Boolean stuff
 keymap.set("n", "<leader>b", function()

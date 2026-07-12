@@ -1,4 +1,4 @@
-vim.cmd("let g:netrw_liststyle = 3") -- Make :Explore tree style
+--vim.cmd("let g:netrw_liststyle = 3") -- Make :Explore tree style
 
 vim.g.trouble_lualine = true
 
